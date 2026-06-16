@@ -1,1 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexaTutor - AI Powered Learning Companion</title>
 
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:
+    linear-gradient(135deg,#f8f9ff 0%,#eef2ff 50%,#faf5ff 100%);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Floating Background */
+.bg-blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(100px);
+    z-index:-1;
+    animation:float 10s ease-in-out infinite;
+}
+
+.blob1{
+    width:300px;
+    height:300px;
+    background:#7c4dff30;
+    top:-100px;
+    left:-100px;
+}
+
+.blob2{
+    width:350px;
+    height:350px;
+    background:#5b8cff25;
+    right:-120px;
+    top:20%;
+}
+
+.blob3{
+    width:300px;
+    height:300px;
+    background:#ff5aa525;
+    bottom:-100px;
+    left:20%;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-30px);}
+}
+
+/* Glassmorphism */
+.glass{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,.5);
+}
+
+/* Cards */
+.card{
+    transition:.35s ease;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:
+    translateY(-8px)
+    scale(1.02);
+    box-shadow:
+    0 20px 40px rgba(124,77,255,.15);
+}
+
+/* 3D Effect */
+.card-3d{
+    transition:all .3s ease;
+    transform-style:preserve-3d;
+}
+
+.card-3d:hover{
+    transform:
+    perspective(1200px)
+    rotateX(5deg)
+    rotateY(-5deg)
+    translateY(-10px);
+}
+
+/* Buttons */
+.gradient-btn{
+    background:
+    linear-gradient(
+    135deg,
+    #5b8cff,
+    #7c4dff
+    );
+}
+
+.gradient-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+    0 15px 30px rgba(124,77,255,.35);
+}
+
+/* Hero */
+.hero{
+    background:
+    linear-gradient(
+    135deg,
+    #edf3ff,
+    #f0e8ff
+    );
+}
+
+/* Progress */
+.progress-fill{
+    background:
+    linear-gradient(
+    90deg,
+    #7c4dff,
+    #9d6bff
+    );
+}
+
+/* Bottom Nav */
+.active-nav{
+    background:
+    linear-gradient(
+    135deg,
+    #7c4dff,
+    #9d6bff
+    );
+    color:white;
+}
+
+/* Ripple Effect */
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.5);
+    transform:scale(0);
+    animation:ripple .6s linear;
+}
+
+@keyframes ripple{
+    to{
+        transform:scale(4);
+        opacity:0;
+    }
+}
+
+button{
+    position:relative;
+    overflow:hidden;
+}
+
+.floating{
+    animation:floating 4s ease-in-out infinite;
+}
+
+@keyframes floating{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-blob blob1"></div>
+<div class="bg-blob blob2"></div>
+<div class="bg-blob blob3"></div>
+
+<div class="max-w-md mx-auto min-h-screen">
+
+<div class="glass rounded-[35px] overflow-hidden shadow-2xl m-4">
+
+<!-- HEADER -->
+
+<div class="p-6">
+
+<div class="flex justify-between items-center">
+
+<button class="text-4xl text-slate-700">
+☰
+</button>
+
+<div class="flex items-center gap-4">
+
+<div class="relative">
+
+<div class="text-3xl">
+🔔
+</div>
+
+<div class="absolute -top-2 -right-2 bg-purple-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">
+3
+</div>
+
+</div>
+
+<img
+src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300"
+class="w-14 h-14 rounded-full border-2 border-white shadow-lg object-cover">
+
+</div>
+
+</div>
+
+<!-- BRAND -->
+
+<div class="mt-8">
+
+<div class="flex items-center gap-3">
+
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+N
+</div>
+
+<div>
+
+<h1 class="font-bold text-2xl text-slate-900">
+NexaTutor
+</h1>
+
+<p class="text-slate-500 text-sm">
+AI-Powered Learning Companion
+</p>
+
+</div>
+
+</div>
+
+<div class="mt-8">
+
+<h2 class="text-5xl font-bold text-slate-900 leading-tight">
+Hello, Yogi 👋
+</h2>
+
+<p class="text-slate-500 text-xl mt-3">
+What would you like to learn today?
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="px-6">
+
+<div class="glass rounded-3xl p-3 flex items-center justify-between shadow-lg">
+
+<div class="flex items-center gap-3 flex-1">
+
+<span class="text-purple-500 text-xl">
+✨
+</span>
+
+<input
+type="text"
+placeholder="Ask NexaTutor anything..."
+class="bg-transparent outline-none w-full text-lg">
+
+</div>
+
+<button class="gradient-btn text-white px-5 py-4 rounded-2xl font-semibold flex items-center gap-2 transition-all">
+🤖 Nexa AI
+</button>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="p-6">
+
+<div class="hero card card-3d rounded-[30px] p-6 overflow-hidden">
+
+<div class="flex items-center justify-between">
+
+<div class="w-[55%]">
+
+<h2 class="text-3xl font-bold text-slate-900 leading-tight">
+Learn Smarter with NexaTutor
+</h2>
+
+<p class="text-slate-600 mt-4">
+Your AI tutor for explanations, quizzes, notes and exam preparation.
+</p>
+
+<button class="gradient-btn text-white px-6 py-4 rounded-2xl mt-5 font-semibold transition-all">
+Start Learning →
+</button>
+
+</div>
+
+<div class="text-center floating">
+
+<div class="text-8xl">
+🤖
+</div>
+
+<div class="text-4xl -mt-2">
+🎓
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CATEGORIES -->
+
+<div class="px-6">
+
+<div class="grid grid-cols-5 gap-3">
+
+<div class="card rounded-3xl p-4 text-center bg-green-50">
+<div class="text-4xl">🎓</div>
+<p class="font-semibold text-xs mt-3">Study</p>
+</div>
+
+<div class="card rounded-3xl p-4 text-center bg-blue-50">
+<div class="text-4xl">📝</div>
+<p class="font-semibold text-xs mt-3">Notes</p>
+</div>
+
+<div class="card rounded-3xl p-4 text-center bg-yellow-50">
+<div class="text-4xl">❓</div>
+<p class="font-semibold text-xs mt-3">Quiz</p>
+</div>
+
+<div class="card rounded-3xl p-4 text-center bg-purple-50">
+<div class="text-4xl">📈</div>
+<p class="font-semibold text-xs mt-3">Progress</p>
+</div>
+
+<div class="card rounded-3xl p-4 text-center bg-pink-50">
+<div class="text-4xl">🔖</div>
+<p class="font-semibold text-xs mt-3">Saved</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- CONTINUE LEARNING -->
+
+<div class="px-6 mt-10">
+
+<div class="flex justify-between items-center mb-4">
+
+<h3 class="text-2xl font-bold">
+Continue Learning
+</h3>
+
+<a href="#" class="text-purple-600 font-semibold">
+View all →
+</a>
+
+</div>
+
+<div class="space-y-4">
+
+<div class="card card-3d bg-white rounded-3xl p-5 shadow-lg border">
+
+<div class="flex gap-4">
+
+<div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-400 to-cyan-500 flex items-center justify-center text-white text-3xl">
+&lt;/&gt;
+</div>
+
+<div class="flex-1">
+
+<div class="flex justify-between">
+<h4 class="font-bold text-xl">Java Programming</h4>
+<span>⋮</span>
+</div>
+
+<p class="text-slate-500">
+Variables & Data Types
+</p>
+
+<div class="mt-4 flex items-center gap-3">
+
+<div class="h-3 bg-slate-200 rounded-full flex-1">
+
+<div class="progress-fill h-3 rounded-full w-[60%]"></div>
+
+</div>
+
+<span class="font-semibold">
+60%
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card card-3d bg-white rounded-3xl p-5 shadow-lg border">
+
+<div class="flex gap-4">
+
+<div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-3xl">
+🧬
+</div>
+
+<div class="flex-1">
+
+<div class="flex justify-between">
+<h4 class="font-bold text-xl">Biology</h4>
+<span>⋮</span>
+</div>
+
+<p class="text-slate-500">
+Cell Structure
+</p>
+
+<div class="mt-4 flex items-center gap-3">
+
+<div class="h-3 bg-slate-200 rounded-full flex-1">
+
+<div class="progress-fill h-3 rounded-full w-[40%]"></div>
+
+</div>
+
+<span class="font-semibold">
+40%
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RECOMMENDATIONS -->
+
+<div class="px-6 mt-10 pb-32">
+
+<div class="flex justify-between items-center mb-4">
+
+<h3 class="text-2xl font-bold">
+Recommended For You
+</h3>
+
+<a href="#" class="text-purple-600 font-semibold">
+View all →
+</a>
+
+</div>
+
+<div class="space-y-4">
+
+<div class="card rounded-3xl p-5 bg-green-50">
+
+<div class="flex justify-between items-center">
+
+<div class="flex gap-4 items-center">
+
+<div class="text-6xl">
+🤖
+</div>
+
+<div>
+
+<h4 class="font-bold text-xl">
+Nexa AI Tutor
+</h4>
+
+<p class="text-slate-600">
+Get instant explanations & guidance.
+</p>
+
+</div>
+
+</div>
+
+<div class="text-purple-600 text-3xl">
+→
+</div>
+
+</div>
+
+</div>
+
+<div class="card rounded-3xl p-5 bg-blue-50">
+
+<div class="flex justify-between items-center">
+
+<div class="flex gap-4 items-center">
+
+<div class="text-6xl">
+📄
+</div>
+
+<div>
+
+<h4 class="font-bold text-xl">
+Nexa Notes
+</h4>
+
+<p class="text-slate-600">
+Generate study notes instantly.
+</p>
+
+</div>
+
+</div>
+
+<div class="text-blue-600 text-3xl">
+→
+</div>
+
+</div>
+
+</div>
+
+<div class="card rounded-3xl p-5 bg-orange-50">
+
+<div class="flex justify-between items-center">
+
+<div class="flex gap-4 items-center">
+
+<div class="text-6xl">
+🎯
+</div>
+
+<div>
+
+<h4 class="font-bold text-xl">
+Nexa Quiz
+</h4>
+
+<p class="text-slate-600">
+AI-powered adaptive quizzes.
+</p>
+
+</div>
+
+</div>
+
+<div class="text-orange-500 text-3xl">
+→
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md">
+
+<div class="glass rounded-t-[35px] p-4 shadow-2xl">
+
+<div class="grid grid-cols-5 text-center">
+
+<div>
+<div class="active-nav w-14 h-14 rounded-2xl mx-auto flex items-center justify-center text-2xl">
+🏠
+</div>
+<p class="text-purple-600 mt-2 text-sm font-semibold">
+Home
+</p>
+</div>
+
+<div>
+<div class="w-14 h-14 rounded-2xl mx-auto flex items-center justify-center text-2xl">
+📚
+</div>
+<p class="text-slate-500 mt-2 text-sm">
+Courses
+</p>
+</div>
+
+<div>
+<div class="w-14 h-14 rounded-2xl mx-auto flex items-center justify-center text-2xl">
+🤖
+</div>
+<p class="text-slate-500 mt-2 text-sm">
+Nexa AI
+</p>
+</div>
+
+<div>
+<div class="w-14 h-14 rounded-2xl mx-auto flex items-center justify-center text-2xl">
+📈
+</div>
+<p class="text-slate-500 mt-2 text-sm">
+Progress
+</p>
+</div>
+
+<div>
+<div class="w-14 h-14 rounded-2xl mx-auto flex items-center justify-center text-2xl">
+👤
+</div>
+<p class="text-slate-500 mt-2 text-sm">
+Profile
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+// Ripple Click Effect
+
+document.querySelectorAll('button').forEach(button=>{
+
+button.addEventListener('click',function(e){
+
+const circle=document.createElement('span');
+
+const diameter=Math.max(
+this.clientWidth,
+this.clientHeight
+);
+
+circle.style.width=diameter+'px';
+circle.style.height=diameter+'px';
+
+circle.style.left=
+e.clientX-
+this.getBoundingClientRect().left-
+diameter/2+'px';
+
+circle.style.top=
+e.clientY-
+this.getBoundingClientRect().top-
+diameter/2+'px';
+
+circle.classList.add('ripple');
+
+const ripple=this.querySelector('.ripple');
+
+if(ripple){
+ripple.remove();
+}
+
+this.appendChild(circle);
+
+});
+
+});
+
+// 3D Tilt Effect
+
+document.querySelectorAll('.card-3d').forEach(card=>{
+
+card.addEventListener('mousemove',(e)=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const rotateX=((y/rect.height)-0.5)*-10;
+const rotateY=((x/rect.width)-0.5)*10;
+
+card.style.transform=
+`perspective(1200px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateZ(10px)`;
+
+});
+
+card.addEventListener('mouseleave',()=>{
+
+card.style.transform='perspective(1200px) rotateX(0deg) rotateY(0deg)';
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
