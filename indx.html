@@ -1,0 +1,522 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Dashboard</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Remix Icons -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+    rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Glow -->
+<div class="bg-circle purple"></div>
+<div class="bg-circle blue"></div>
+<div class="bg-circle pink"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+   <header class="top-header glass">
+
+    <div class="menu-btn">
+        <i class="ri-menu-3-line"></i>
+    </div>
+
+    <div class="header-right">
+
+        <div class="notification">
+            <i class="ri-notification-3-line"></i>
+            <span>3</span>
+        </div>
+
+        <div class="profile">
+            <img src="https://i.pravatar.cc/100?img=12">
+        </div>
+
+        <div class="theme-selector">
+            <select id="themeSelect">
+                <option value="system">💻 System</option>
+                <option value="light">☀️ Light</option>
+                <option value="dark">🌙 Dark</option>
+            </select>
+        </div>
+
+    </div>
+
+</header>
+
+
+    <!-- GREETING -->
+    <section class="greeting">
+
+        <h1>
+            Hello, Yogi 👋
+        </h1>
+
+        <p>
+            What do you want to learn today?
+        </p>
+
+    </section>
+
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+        <div class="search-bar glass">
+
+            <div class="search-left">
+
+                <i class="ri-sparkling-2-fill"></i>
+
+                <input
+                type="text"
+                placeholder="Ask anything...">
+
+            </div>
+
+            <button class="ask-ai ripple-btn">
+
+                <i class="ri-robot-2-line"></i>
+
+                Ask AI
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- HERO -->
+    <section class="hero glass">
+
+        <div class="hero-left">
+
+            <h2>
+                Learn Smarter
+                <span>with AI</span>
+            </h2>
+
+            <p>
+                Your personal AI tutor to explain,
+                practice and help you succeed.
+            </p>
+
+            <button class="start-btn ripple-btn">
+
+                Start Learning
+
+                <i class="ri-arrow-right-line"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- ROBOT SIDE -->
+
+        <div class="hero-right">
+
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
+
+            <div class="star s1">⭐</div>
+            <div class="star s2">⭐</div>
+
+            <div class="chat-box">
+                <i class="ri-message-2-line"></i>
+            </div>
+
+            <div class="book">
+                📖
+            </div>
+
+            <!-- ROBOT -->
+
+            <div class="robot">
+
+                <div class="robot-head">
+
+                    <div class="eyes">
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="smile"></div>
+
+                </div>
+
+                <div class="robot-body">
+
+                    <div class="ai-tag">
+                        AI
+                    </div>
+
+                </div>
+
+                <div class="cap"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+        <div class="feature-card green">
+
+            <div class="icon">
+                🎓
+            </div>
+
+            <h3>
+                Study with AI
+            </h3>
+
+            <p>
+                Get explanations
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card blue">
+
+            <div class="icon">
+                📝
+            </div>
+
+            <h3>
+                Notes
+            </h3>
+
+            <p>
+                AI generated
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card orange">
+
+            <div class="icon">
+                ❓
+            </div>
+
+            <h3>
+                Quizzes
+            </h3>
+
+            <p>
+                Test yourself
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card purple">
+
+            <div class="icon">
+                📊
+            </div>
+
+            <h3>
+                Progress
+            </h3>
+
+            <p>
+                Track learning
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card pink">
+
+            <div class="icon">
+                🔖
+            </div>
+
+            <h3>
+                Saved
+            </h3>
+
+            <p>
+                Your bookmarks
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- CONTINUE LEARNING -->
+
+    <section class="continue">
+
+        <div class="title-row">
+
+            <h2>
+                Continue Learning
+            </h2>
+
+            <a href="#">
+                View all
+            </a>
+
+        </div>
+
+
+        <div class="learning-slider">
+
+
+            <!-- JAVA CARD -->
+
+            <div class="learning-card glass">
+
+                <div class="learning-icon green-bg">
+                    &lt;/&gt;
+                </div>
+
+                <div class="learning-info">
+
+                    <div class="top">
+
+                        <div>
+
+                            <h3>
+                                Java Programming
+                            </h3>
+
+                            <p>
+                                Variables & Data Types
+                            </p>
+
+                        </div>
+
+                        <i class="ri-more-2-fill"></i>
+
+                    </div>
+
+                    <div class="progress-row">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill java"></div>
+
+                        </div>
+
+                        <span>60%</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- BIOLOGY CARD -->
+
+            <div class="learning-card glass">
+
+                <div class="learning-icon blue-bg">
+                    🧬
+                </div>
+
+                <div class="learning-info">
+
+                    <div class="top">
+
+                        <div>
+
+                            <h3>
+                                Biology
+                            </h3>
+
+                            <p>
+                                Cell Structure
+                            </p>
+
+                        </div>
+
+                        <i class="ri-more-2-fill"></i>
+
+                    </div>
+
+                    <div class="progress-row">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill bio"></div>
+
+                        </div>
+
+                        <span>40%</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- RECOMMENDED -->
+    <section class="recommended">
+
+        <div class="title-row">
+
+            <h2>
+                Recommended for you
+            </h2>
+
+            <a href="#">
+                View all
+            </a>
+
+        </div>
+
+
+        <div class="recommend-grid">
+
+            <div class="recommend-card green-card">
+
+                <div class="emoji">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        AI Tutor
+                    </h3>
+
+                    <p>
+                        Ask doubts and get instant help
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="recommend-card blue-card">
+
+                <div class="emoji">
+                    📄
+                </div>
+
+                <div>
+
+                    <h3>
+                        AI Notes
+                    </h3>
+
+                    <p>
+                        Generate notes in seconds
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="recommend-card orange-card">
+
+                <div class="emoji">
+                    🎯
+                </div>
+
+                <div>
+
+                    <h3>
+                        Smart Quiz
+                    </h3>
+
+                    <p>
+                        Practice and improve
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav glass">
+
+        <a class="active">
+            <i class="ri-home-5-fill"></i>
+            <span>Home</span>
+        </a>
+
+        <a>
+            <i class="ri-book-open-line"></i>
+            <span>Courses</span>
+        </a>
+
+        <a>
+            <i class="ri-robot-2-line"></i>
+            <span>AI Tutor</span>
+        </a>
+
+        <a>
+            <i class="ri-bar-chart-line"></i>
+            <span>Progress</span>
+        </a>
+
+        <a>
+            <i class="ri-user-3-line"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
